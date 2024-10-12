@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 let isConnected = false; //track the conmection
 
-export const connecToDB = async () => {
+export const connectToDB = async () => {
   mongoose.set("strictQuery", true);
 
   if (isConnected) {
@@ -14,7 +14,6 @@ export const connecToDB = async () => {
     await mongoose.connect(process.env.MONGODB_URI, {
       dbName: "NodeExpressProjects",
       useNewUrlParser: true,
-      useUnifiedTopology: true,
     });
 
     isConnected = true;
